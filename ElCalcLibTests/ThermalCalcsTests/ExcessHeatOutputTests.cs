@@ -10,7 +10,7 @@ namespace ElCalcLibTests.ThermalCalcsTests
         {
             // Arrange
             double componentsPower = 800;
-            double heatTransferCoeff = ThermalCalcs.HeatTransferCoeff.MetallicPainted;
+            double heatTransferCoeff = ThermalCalcs.HeatTransferCoeff["MetallicPainted"];
             double effectiveHeatExchangeArea = 4.13;
             double inTmax = 40;
             double outTmax = 35;
@@ -29,7 +29,7 @@ namespace ElCalcLibTests.ThermalCalcsTests
         {
             // Arrange
             double componentsPower = 800;
-            double heatTransferCoeff = ThermalCalcs.HeatTransferCoeff.MetallicPainted;
+            double heatTransferCoeff = ThermalCalcs.HeatTransferCoeff["MetallicPainted"];
             double effectiveHeatExchangeArea = 4.13;
             double inTmax = 35;
             double outTmax = 40;

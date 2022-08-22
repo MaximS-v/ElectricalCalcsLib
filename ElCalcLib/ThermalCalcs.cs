@@ -40,15 +40,26 @@
         }
 
         /// <summary>
+        /// Heat transfer coefficient for electrical cabinets in various materials, W/m2/°C
+        /// </summary>
+        public static Dictionary<string, double> HeatTransferCoeff = new Dictionary<string, double>()
+        {
+            {"MetallicPainted", 5.5 },
+            {"Polyester", 3.5 },
+            {"StainlessSteel", 3.7 },
+            {"Aluminum", 12 }
+        };
+
+        /// <summary>
         /// Heat transfer coefficient for electrical cabinets in various materials, W/m2/deg_cels
         /// </summary>
-        public struct HeatTransferCoeff
-        {
-            public const double MetallicPainted = 5.5;
-            public const double Polyester = 3.5;
-            public const double StainlessSteel = 3.7;
-            public const double Aluminum = 12;
-        }
+        //public struct HeatTransferCoeff
+        //{
+        //    public const double MetallicPainted = 5.5;
+        //    public const double Polyester = 3.5;
+        //    public const double StainlessSteel = 3.7;
+        //    public const double Aluminum = 12;
+        //}
 
         /// <summary>
         /// Calculates excess heat output of electrical cabinet
@@ -59,7 +70,7 @@
         /// <param name="inTmax">Maximum allowable temperature inside the cabinet</param>
         /// <param name="outTmax">Maximum possible temperature outside the cabinet</param>
         /// <returns>The amount of heat power that needs to be removed or Double.MaxValue if outTmax >= inTmax</returns>
-        public static double ExcessHeatOutput(double componentsPower, double heatTransferCoeff, 
+        public static double ExcessHeatOutput(double componentsPower, double heatTransferCoeff,
 
             double effectiveHeatExchangeArea, double inTmax, double outTmax)
         {
