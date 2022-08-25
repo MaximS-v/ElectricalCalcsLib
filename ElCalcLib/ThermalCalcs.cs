@@ -142,5 +142,22 @@
             var gamma = (a * temp) / (b + temp) + Math.Log(relativeHumidity);
             return (b * gamma) / (a - gamma);
         }
+
+        /// <summary>
+        /// Сalculation of the required heater power to provide the desired temperature inside the electrical cabinet
+        /// </summary>
+        /// <param name="componentsPower">Power dissipated by internal components</param>
+        /// <param name="inTmin">Minimum allowable temperature inside the cabinet</param>
+        /// <param name="outTmin">Minimum possible temperature outside the cabinet</param>
+        /// <param name="effectiveHeatExchangeArea">Effective heat exchange area of electrical cabinet</param>
+        /// <param name="heatTransferCoeff">Heat transfer coefficient for electrical cabinets in various materials</param>
+        /// <returns>Required heater power to provide the desired temperature inside the electrical cabinet</returns>
+        public static double RequiredHeaterPower(double componentsPower, double inTmin, double outTmin,
+            double effectiveHeatExchangeArea, double heatTransferCoeff)
+        {
+            var result = heatTransferCoeff * effectiveHeatExchangeArea * (inTmin - outTmin) - componentsPower;
+            if (result > 0) return result;
+            return 0;
+        }
     }
 }
