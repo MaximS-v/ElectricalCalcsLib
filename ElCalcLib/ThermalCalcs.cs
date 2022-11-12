@@ -1,4 +1,6 @@
-﻿namespace ElCalcLib
+﻿using System.ComponentModel;
+
+namespace ElCalcLib
 // Library of electrical calculations
 {
     /// <summary>
@@ -30,12 +32,25 @@
         /// </summary>
         public enum ElCabsLayout
         {
+            [Description("Со всесторонним доступом")]
             AllRoundAccess = 1,
+
+            [Description("Около стены")]
             NearWall = 2,
+
+            [Description("Крайний в ряду")]
             LastInLine = 3,
+
+            [Description("Крайний в ряду около стены")]
             LastInLIneNearWall = 4,
+
+            [Description("В середине ряда")]
             MiddleInLine = 5,
+
+            [Description("В середине ряда около стены")]
             MiddleInLineNearWall = 6,
+
+            [Description("В середине ряда, около стены, с закрытой верхней частью")]
             MiddleInLineNearWallWithClosedTop = 7
         }
 
